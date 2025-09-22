@@ -1,0 +1,128 @@
+/*
+  فایل استایل پروژه To-Do List
+  هدف: ایجاد یک UI ساده و خوانا
+
+  نکته آموزشی:
+  - از CSS variables برای رنگ‌ها استفاده می‌کنیم تا تغییرات ساده‌تر شود.
+  - همیشه ساختار را ساده نگه دارید تا تمرکز روی JS و ذخیره‌سازی باشد.
+*/
+
+:root {
+  --bg: #0f172a; /* پس‌زمینه تیره */
+  --card: #111827; /* پس‌زمینه کارت */
+  --text: #e5e7eb; /* متن روشن */
+  --muted: #9ca3af; /* متن کم رنگ */
+  --primary: #22c55e; /* سبز */
+  --danger: #ef4444; /* قرمز */
+  --border: #1f2937; /* خطوط */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  /* فونت Vazirmatn را در ابتدای لیست قرار می‌دهیم تا برای فارسی استفاده شود */
+  font-family: "Vazirmatn", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* اطمینان از اینکه کنترل‌های فرم هم از همان فونت استفاده می‌کنند */
+input, button, select, textarea {
+  font-family: inherit;
+}
+
+.container {
+  max-width: 720px;
+  margin: 48px auto;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.app-title {
+  margin: 0 0 16px;
+  font-size: 24px;
+}
+
+#todo-form {
+  display: flex;
+  gap: 8px;
+}
+
+#todo-input {
+  flex: 1 1 auto;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  color: var(--text);
+  border-radius: 8px;
+}
+
+/* استایل placeholder با همان فونت */
+#todo-input::placeholder {
+  color: var(--muted);
+  font-family: inherit;
+}
+/* برای سازگاری بیشتر با برخی مرورگرها */
+#todo-input::-webkit-input-placeholder { color: var(--muted); font-family: inherit; }
+#todo-input::-moz-placeholder { color: var(--muted); font-family: inherit; }
+#todo-input:-ms-input-placeholder { color: var(--muted); font-family: inherit; }
+#todo-input::-ms-input-placeholder { color: var(--muted); font-family: inherit; }
+
+button {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  background: var(--primary);
+  color: #06220f;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--muted);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0 4px;
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  background: #0b1220;
+}
+
+.todo-item + .todo-item { margin-top: 10px; }
+
+.todo-text {
+  flex: 1 1 auto;
+}
+
+.delete-btn {
+  background: var(--danger);
+  color: #220606;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+

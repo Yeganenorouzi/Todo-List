@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- فارسی بودن صفحه و راست به چپ -->
+<html lang="fa" dir="rtl">
+  <head>
+    <!--
+      پروژه: A Basic To-Do List Application
+      هدف: ساخت یک لیست کار ساده با HTML/CSS/JS و ذخیره‌سازی در localStorage
+
+      نکته آموزشی:
+      - این فایل ساختار صفحه (UI) را می‌سازد.
+      - فایل style.css ظاهر را تنظیم می‌کند.
+      - فایل script.js رفتار (افزودن/حذف) و ذخیره‌سازی را مدیریت می‌کند.
+    -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List | لیست کارها</title>
+    <!-- فونت وزیرمتن (Vazirmatn) از Google Fonts برای فارسی -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <!-- لینک به فایل استایل -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!--
+      گام ۱: ساختار اصلی رابط کاربری
+      - یک عنوان
+      - یک فرم شامل input و دکمه افزودن
+      - یک لیست برای نمایش آیتم‌ها
+      - دکمه «حذف همه» برای پاکسازی سریع (اختیاری ولی مفید)
+    -->
+    <main class="container">
+      <h1 class="app-title">لیست کارها (To‑Do List)</h1>
+
+      <!-- فرم افزودن آیتم جدید -->
+      <!--
+        نکته: استفاده از فرم باعث می‌شود با Enter هم آیتم اضافه شود.
+      -->
+      <form id="todo-form" autocomplete="off">
+        <!--
+          placeholder: راهنمای کوتاه به کاربر
+          required: جلوگیری از ارسال ورودی خالی
+        -->
+        <input
+          id="todo-input"
+          type="text"
+          placeholder="مثلاً: ورزش، مطالعه، خرید..."
+          required
+          aria-label="متن کار جدید"
+        />
+        <button id="add-btn" type="submit" aria-label="افزودن">افزودن</button>
+      </form>
+
+      <!-- بخش کنترل‌ها (اختیاری) -->
+      <div class="toolbar">
+        <button id="clear-all-btn" class="secondary" type="button" aria-label="حذف همه">
+          حذف همه
+        </button>
+      </div>
+
+      <!-- لیست آیتم‌ها -->
+      <!--
+        ul: فهرست مرتب‌نشده. هر آیتم به صورت li اضافه می‌شود.
+      -->
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+      <!-- پیام خالی بودن لیست -->
+      <p id="empty-state" class="empty-state">هنوز کاری اضافه نشده است.</p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+
+
